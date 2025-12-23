@@ -1,10 +1,12 @@
 const express = require("express");
 
+const connectToDb = require("./src/db/db")
+
 const app = express();
 
 app.use(express.json());
 
-const notes = [];
+
 
 app.get("/",(req,res)=>{
     res.send("hellow world")
