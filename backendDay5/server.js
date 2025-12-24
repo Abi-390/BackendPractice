@@ -22,6 +22,25 @@ app.post("/notes",async(req,res)=>{
     })
 })
 
+app.get("/notes",async(req,res)=>{
+
+    const notes = await noteModel.find()
+
+    res.json({
+        message:"Notes fetached successfully",notes
+    })
+})
+
+app.delete("/notes/:id",async(req,res)=>{
+    const noteId = req.params.id
+
+    await noteModel.findOneAndDelete({
+        _id : noteId
+    })
+    res.json({
+        message:"note deleted succefully"
+    })
+})
 
 
 
