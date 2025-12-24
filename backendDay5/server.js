@@ -1,51 +1,69 @@
-const express = require("express")
+const express = require("express");
 
-const connectToDb = require("./src/db/db")
+const connectToDb = require("./src/db/db");
 
-const noteModel = require("./src/models/notes.model")
+const noteModel = require("./src/models/notes.model");
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-app.post("/notes",async(req,res)=>{
-    const {title,content} = req.body
+app.post("/notes", async (req, res) => {
+  const { title, content } = req.body;
 
-    console.log(title,content)
+  console.log(title, content);
 
-   await noteModel.create({
-        title,content
-    })
+  await noteModel.create({
+    title,
+    content,
+  });
 
+  res.json({
+    message: "Note created successfully",
+  });
+});
+
+app.get("/notes", async (req, res) => {
+  const notes = await noteModel.find();
+
+  res.json({
+    message: "Notes fetached successfully",
+    notes,
+  });
+});
+
+app.delete("/notes/:id", async (req, res) => {
+  const noteId = req.params.id;
+
+  await noteModel.findOneAndDelete({
+    _id: noteId,
+  });
+  res.json({
+    message: "note deleted succefully",
+  });
+});
+
+app.patch("/notes/:id", async (req, res) => {
+  const noteId = req.params.id;
+
+  const { title, content } = req.body;
+
+  await noteModel.findOneAndUpdate(
+    {
+      _id: noteId,
+    },
+    {
+      title: title,
+      content: content,
+    },
     res.json({
-        message:"Note created successfully"
+        message:"note updated successfully"
     })
-})
+  );
+});
 
-app.get("/notes",async(req,res)=>{
+connectToDb();
 
-    const notes = await noteModel.find()
-
-    res.json({
-        message:"Notes fetached successfully",notes
-    })
-})
-
-app.delete("/notes/:id",async(req,res)=>{
-    const noteId = req.params.id
-
-    await noteModel.findOneAndDelete({
-        _id : noteId
-    })
-    res.json({
-        message:"note deleted succefully"
-    })
-})
-
-
-
-connectToDb()
-
-app.listen(3000,(req,res)=>{
-    console.log("Server is running on port 3000 ")
-})
+app.listen(3000, (req, res) => {
+  console.log("Server is running on port 3000 ");
+});
