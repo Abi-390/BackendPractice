@@ -29,9 +29,8 @@ router.post("/register", async (req, res) => {
 
   res.cookie("token", token);
   res.status(201).json({
-    message: "user created successfully",
-    user,
-    token,
+    message: "User created successfully",
+    user,token
   });
 });
 
