@@ -78,6 +78,7 @@ router.get("/user", async (req, res) => {
       .select("-password -__v")
       .lean();
 
+        console.log(user)
     res.status(200).json({
       message: "User data fetched successfully",
       user,
