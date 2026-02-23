@@ -16,7 +16,7 @@ async function createProduct(req,res){
     })
     } catch (error) {
         res.status(500).json({
-            message : "failed to create product",error
+            message : "Failed to create product",error
         })
     }
     
