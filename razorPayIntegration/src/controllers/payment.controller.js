@@ -8,8 +8,7 @@ const razorpay = new Razorpay({
 });
 
 async function createOrder(req, res) {
-
-    const product = await productModel.findOne();
+  const product = await productModel.findOne();
 
   const options = {
     amount: product.price.amount,
@@ -21,15 +20,16 @@ async function createOrder(req, res) {
 
     const newPayment = await paymentModel.create({
       orderId: order.id,
-      amount: order.amount,
-      currency: order.currency,
-      status: 'PENDING',
-    });
+      price: {
+        amount: order.amount,
+        currency: order.currency,
+      },
 
+      status: "PENDING",
+    });
   } catch (error) {
-    res.status(500).send('Error creating order');
+    res.status(500).send("Error creating order");
   }
 }
 
-
-module.exports = { createOrder};
+module.exports = { createOrder };
