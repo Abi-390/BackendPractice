@@ -22,4 +22,19 @@ async function createProduct(req,res){
     
 }
 
-module.exports={createProduct}
+async function getItem(req,res){
+    try {
+        const products = await productModel.findOne();
+
+        res.status(200).json({
+            message:"Products fetched successfully",products
+        })
+    } catch (error) {
+        res.status(500).json({
+            message:"Something went wrong in product fetching",
+            error:error.message
+        })
+    }
+}
+
+module.exports={createProduct,getItem}
