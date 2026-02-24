@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import axios from 'axios';  
+import PaymentButton from './PaymentButton';
 
 
 const App = () => {
@@ -42,9 +43,9 @@ const App = () => {
             ₹ {(products.price.amount/100).toLocaleString()} {products.price.currency}
           </div>
 
-          <button className="w-full mt-3 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-            Pay with Razorpay
-          </button>
+          <div className="w-full mt-3 bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+           <PaymentButton/>
+          </div>
         </div>
 
       </div>
