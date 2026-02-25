@@ -28,6 +28,7 @@ function PaymentButton() {
             alert("Payment successful!");
           } catch (err) {
             alert("Payment verification failed!");
+            console.log(err)
           }
         },
         prefill: {
