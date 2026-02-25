@@ -20,7 +20,7 @@ function PaymentButton() {
         handler: async function (response) {
           const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
           try {
-            await axios.post("http://localhost:5000/api/payment/verify", {
+            await axios.post("http://localhost:3000/api/payments/verify", {
               razorpayOrderId: razorpay_order_id,
               razorpayPaymentId: razorpay_payment_id,
               signature: razorpay_signature,
