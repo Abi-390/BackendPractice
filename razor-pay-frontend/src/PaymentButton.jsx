@@ -48,7 +48,7 @@ function PaymentButton() {
   };
 
   return (
-    <button onClick={handlePayment} style={{ padding: "10px 20px", background: "#3399cc", color: "#fff", border: "none", borderRadius: "5px" }}>
+    <button onClick={handlePayment} style={{ padding: "10px 20px", color: "#fff", border: "none", borderRadius: "5px" }}>
       Pay Now
     </button>
   );
