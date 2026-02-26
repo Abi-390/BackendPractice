@@ -13,6 +13,7 @@ function validate(req, res, next) {
 
 const registerValidationRules = [
   body("username")
+    .optional()   //with this method username becomes optional user can register only with email pass but if username enters then validation will be still cheked
     .isString()
     .withMessage("Username must be a string")
     .isLength({ min: 3 })
