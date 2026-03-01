@@ -2,7 +2,7 @@ FROM node:18
 # this meaning we are getting a based image of node18 which contains linux os + nodejs
 
 WORKDIR /app
-# this meaning we are keeping our express app or code inside the app folder of linux
+# this means we are keeping our express app or code inside the app folder of linux
 
 COPY package*.json ./
 #we are copying both package.json and package-lock.json inside working directory app in a single command rather than copying twice
