@@ -37,25 +37,25 @@ Check Docker installation:
 -  contents of dockerfile :
 
 - FROM node:18
-- Base image: includes Linux OS + Node.js v18
+--> Base image: includes Linux OS + Node.js v18
 
 - WORKDIR /app
-- Sets working directory inside container
+--> Sets working directory inside container
 
 - COPY package*.json ./
-- Copies package.json and package-lock.json
+--> Copies package.json and package-lock.json
 
 - RUN npm install
-- Installs dependencies inside container
+--> Installs dependencies inside container
 
 - COPY server.js ./
-- Copies application source code
+--> Copies application source code
 
 - EXPOSE 3000
-- Tells Docker the app runs on port 3000
+--> Tells Docker the app runs on port 3000
 
 - CMD ["node", "server.js"]
-- Command to run when container starts
+--> Command to run when container starts
 
 ### 🧠 Understanding the Dockerfile
 
