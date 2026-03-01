@@ -34,28 +34,28 @@ Check Docker installation:
 # 🐳 Step 2 – Create Dockerfile
 
 - Create a file named: dockerfile inside your project root
-- # contents of dockerfile :
+-  contents of dockerfile :
 
 - FROM node:18
-# Base image: includes Linux OS + Node.js v18
+- Base image: includes Linux OS + Node.js v18
 
-WORKDIR /app
-# Sets working directory inside container
+- WORKDIR /app
+- Sets working directory inside container
 
-COPY package*.json ./
-# Copies package.json and package-lock.json
+- COPY package*.json ./
+- Copies package.json and package-lock.json
 
-RUN npm install
-# Installs dependencies inside container
+- RUN npm install
+- Installs dependencies inside container
 
-COPY server.js ./
-# Copies application source code
+- COPY server.js ./
+- Copies application source code
 
-EXPOSE 3000
-# Tells Docker the app runs on port 3000
+- EXPOSE 3000
+- Tells Docker the app runs on port 3000
 
-CMD ["node", "server.js"]
-# Command to run when container starts
+- CMD ["node", "server.js"]
+- Command to run when container starts
 
 ### 🧠 Understanding the Dockerfile
 
