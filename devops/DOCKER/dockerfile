@@ -1,0 +1,22 @@
+FROM node:18
+# this meaning we are getting a based image of node18 which contains linux os + nodejs
+
+WORKDIR /app
+# this meaning we are keeping our express app or code inside the app folder of linux
+
+COPY package*.json ./
+#we are copying both package.json and package-lock.json inside working directory app in a single command rather than copying twice
+
+RUN npm install 
+#node_modules will get copied with the help of package & package-lock.json
+
+COPY server.js ./
+#copied server.js file inside linux working directory
+
+EXPOSE 3000
+# this meaning it will run a server at port 3000 so if any request comes at this port allow it
+
+CMD ["node", "server.js"]
+#will run the docker image 
+
+#this file is basically blue print for the docker image
