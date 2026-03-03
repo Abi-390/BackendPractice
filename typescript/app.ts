@@ -16,3 +16,11 @@ c = "ab";
 
 if (typeof c === "string") c.toLocaleUpperCase();// in case of unknown type first we need to check the string after that only we use run any method
 
+function  abcd():void{
+    console.log("hey")
+} // if a function doesn't return anything then we put type void
+
+let d:null;//setting  type of d as null
+
+let e:string|number; //here we are using union,that mean value of e can either be string or number
+
