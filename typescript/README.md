@@ -17,4 +17,9 @@
 - let e:string|number; here we are using union( '|' ),that mean value of e can either be string or number
 - type inference is typescript automatically knowing type of a value with even type being set
 - type annoation is basically assigning type or types
--interface is basically face of an object, we use it tell the types of the properties inside an object.In type script if we dont use interface to tell the types of object we wont be able to access the object properties.
+
+### Interface
+
+- interface is basically face of an object, we use it tell the types of the properties inside an object.In type script if we dont use interface to tell the types of object we wont be able to access the object properties.
+- interface Admin extends User--> basiclly admin has all the properties of User interface along with its own property
+- If we make multiple interfaces with same name their properties get merged

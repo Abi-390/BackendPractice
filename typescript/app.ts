@@ -36,3 +36,12 @@ function getDataOfUser(obj:User){
 }
 
 getDataOfUser({name:"abi",email:"a@example.com",password:"123"})
+
+
+interface Admin extends User{
+    admin:boolean;
+} // basiclly admin has all the properties of User interface along with its own property
+
+function abc(obj:Admin){
+// here we can get obj.admin
+}

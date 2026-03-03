@@ -22,4 +22,7 @@ let e; //here we are using union,that mean value of e can either be string or nu
 function getDataOfUser(obj) {
 }
 getDataOfUser({ name: "abi", email: "a@example.com", password: "123" });
+function abc(obj) {
+    // here we can get obj.admin
+}
 //# sourceMappingURL=app.js.map
