@@ -1,15 +1,16 @@
-'use client'
-import Footer from '@/components/footer/Footer'
-import Navbar from '@/components/navbar/Navbar'
-import React from 'react'
+"use client";
+
+import React from "react";
+import recipe from "../public/recipe.webp";
+import Image from "next/image";
 
 const page = () => {
   return (
-    <div >
-      <Navbar/>
-      <Footer/>
+    <div>
+      <h1>Home</h1>
+      <Image width={80} src={recipe} alt="Not found" />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
