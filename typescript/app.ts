@@ -24,3 +24,15 @@ let d:null;//setting  type of d as null
 
 let e:string|number; //here we are using union,that mean value of e can either be string or number
 
+interface User{
+    name: string,
+    email: string,
+    password: string
+    gender?:string // means gender is optional property     
+} // interface is basically face of an object, we use it tell the types of the properties inside an object
+
+function getDataOfUser(obj:User){
+
+}
+
+getDataOfUser({name:"abi",email:"a@example.com",password:"123"})

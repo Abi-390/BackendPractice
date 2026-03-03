@@ -19,4 +19,7 @@ function abcd() {
 } // if a function doesn't return anything then we put type void
 let d; //setting  type of d as null
 let e; //here we are using union,that mean value of e can either be string or number
+function getDataOfUser(obj) {
+}
+getDataOfUser({ name: "abi", email: "a@example.com", password: "123" });
 //# sourceMappingURL=app.js.map
