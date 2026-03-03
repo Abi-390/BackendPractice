@@ -1,11 +1,19 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
   return (
-    <div className='bg-red-500 text-white h-20 w-full'>
-      <h1>Home</h1>
-    </div>
-  )
-}
+    <div className="bg-pink-500 text-white h-20 w-full flex items-center justify-between px-6 text-2xl">
+      <h1>AbiVerse</h1>
 
-export default Navbar
+      <div className="flex gap-6">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/products">Products</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
