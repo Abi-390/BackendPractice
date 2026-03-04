@@ -45,3 +45,11 @@ interface Admin extends User{
 function abc(obj:Admin){
 // here we can get obj.admin
 }
+
+
+type sentence = string; // basically we can make our own types
+let f:sentence;
+
+type value = number | string | null;
+
+let g:value; // Now g can be either number or string or null

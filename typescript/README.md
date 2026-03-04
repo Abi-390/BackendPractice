@@ -23,3 +23,8 @@
 - interface is basically face of an object, we use it tell the types of the properties inside an object.In type script if we dont use interface to tell the types of object we wont be able to access the object properties.
 - interface Admin extends User--> basiclly admin has all the properties of User interface along with its own property
 - If we make multiple interfaces with same name their properties get merged
+
+### Type aliases
+
+-  Basically we can make our own types (eg:type sentence = string; let f:sentence;)
+-  Union Operator ( | )-->type value = number | string | null;let g:value; (Now g can be either number or string or null)

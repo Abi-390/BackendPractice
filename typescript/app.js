@@ -25,4 +25,6 @@ getDataOfUser({ name: "abi", email: "a@example.com", password: "123" });
 function abc(obj) {
     // here we can get obj.admin
 }
+let f;
+let g; // Now g can be either number or string or null
 //# sourceMappingURL=app.js.map
