@@ -179,3 +179,14 @@ let user1 = new userName("john", 25);
 - 2.  this._name = value; --> here we are using setter to set the value of _name property, we can access this setter using the object of the class like this: user1.name = "new name", it will set the value of _name property to "new name".
 - 3. let user1 = new userName("john", 25);--> here we have created an object of class userName and passed the values for _name and age parameters, now we can access the name getter and setter using the object user1 like this: user1.name to get the value of _name property and user1.name = "new name" to set the value of _name property to "new name".
 - 4. Note : constructor(public _name:string, public age:number) --> _name here because if we put name here then in getter we wont be able to use get name() it will give duplicate identifier error because we have already used name as a parameter in constructor, so we use _name to avoid this error and then we can use get name() and set name() to access and modify the value of _name property
+
+### Static members
+
+- static memebers definition is like this: static propertyName = value; and we can access it using className.propertyName without creating an object of the class.
+
+- Eg: class project1{
+    static version = "1.0.0";
+    }
+
+- 1. static version = "1.0.0"; --> here we have defined a static property version, which means we can access this property without creating an object of the class, we can access it using the class name like this: project1.version, it will return the value of version property which is "1.0.0".
+- 2. we dont have to create let s1 = new project`() to access version property like this: s1.version, since we are using static we can directly access it like project1.version      

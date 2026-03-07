@@ -200,3 +200,9 @@ class userName{
 }
 
 let user1 = new userName("john", 25);// here we have created an object of class userName and passed the values for _name and age parameters, now we can access the name getter and setter using the object user1 like this: user1.name to get the value of _name property and user1.name = "new name" to set the value of _name property to "new name"
+
+// static memebers in ts
+ class project1{
+    static version = "1.0.0"; // here we have defined a static property version, which means we can access this property without creating an object of the class, we can access it using the class name like this: project1.version, it will return the value of version property which is "1.0.0"
+ }
+// we dont have to create let s1 = new project`() to access version property like this: s1.version, since we are using static we can directly access it like project1.version 
