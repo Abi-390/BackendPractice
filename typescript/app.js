@@ -35,4 +35,34 @@ class software {
     database = "mongoDB";
 } // this is how we can create a class in ts, here we have created a class software with 3 properties frontend, backend and database
 let s1 = new software(); // here we have created an object s1 of class software, now we can access the properties of class software using s1 like s1.frontend, s1.backend etc
+//constructor in ts
+class humanMaker {
+    name;
+    ishandome;
+    age = 0; // here we have defined a property age and initialized it with 0, now whenever we create an object of class humanMaker then age will be 0 by default, we haven't put age in constructor because we want it to be 0 by default for every object of class humanMaker, if we want to change the value of age then we can do it using the object of the class like s1.age = 25 etc
+    constructor(name, ishandome) {
+        this.name = name;
+        this.ishandome = ishandome;
+        // here we have created a constructor which will be called when we create an object of class humanMaker, here we have also defined the properties name and ishandome in the constructor itself, so we don't need to define them separately like we did in software class
+    } // constructor always runs first when we create an object of a class, it is used to initialize the properties of the class, here we have initialized the properties name and ishandome using the constructor parameters, we have also made them public so that we can access them outside the class using the object of the class
+}
+let h1 = new humanMaker("john", true); // here we have created an object of class humanMaker and passed the values for name and ishandome properties, now we can access these properties using the object of the class like this:
+//music player with constructor
+class muscicPlayer {
+    name;
+    artist;
+    album;
+    free;
+    length;
+    thumbnail;
+    constructor(name, artist, album, free, length, thumbnail = "somethumbnail.jpg") {
+        this.name = name;
+        this.artist = artist;
+        this.album = album;
+        this.free = free;
+        this.length = length;
+        this.thumbnail = thumbnail;
+    }
+} // here we have created a class musicPlayer with a constructor that takes 6 parameters, we have also given a default value to thumbnail parameter, so if we don't pass any value for thumbnail when creating an object of musicPlayer then it will take the default value "somethumbnail.jpg"
+let song1 = new muscicPlayer("song1", "artist1", "album1", true, 3.5); // here we have created an object of class musicPlayer and passed the values for name, artist, album, free and length parameters, we haven't passed any value for thumbnail parameter so it will take the default value "somethumbnail.jpg"
 //# sourceMappingURL=app.js.map

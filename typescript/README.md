@@ -28,3 +28,34 @@
 
 -  Basically we can make our own types (eg:type sentence = string; let f:sentence;)
 -  Union Operator ( | )-->type value = number | string | null;let g:value; (Now g can be either number or string or null)
+- type value = number | string | null;let g: value; --> Now g can be either number or string or null
+- type arg = string | null; function abcde(obj: arg) {}; abcde("hello");-->here in argument we must pass object with type string or null, if we pass any other type then it will give error because we have defined type of obj as arg and arg can only be string or null
+
+### Classes in Ts
+
+- class software{
+    fronted = "react";
+    backend = "node";
+    database = "mongoDB";
+} --> this is how we can create a class in ts, here we have created a class software with 3 properties frontend, backend and database
+
+- let s1 = new software();-->here we have created an object s1 of class software, now we can access the properties of class software using s1 like s1.frontend, s1.backend etc
+
+- In case of a noraml class it has fixed properties and methods
+
+### Constructor in Ts
+
+- Since in case of a noraml class it has fixed properties and methods but constructor allows us to create dynamic properties and methods based on the parameters we pass while creating an object of the class, this is one of the main advantages of using constructor in a class, it allows us to create objects with different properties and methods based on the parameters we pass while creating the object.
+
+- Eg: class humanMaker{ age = 0;
+constructor(public name:string, public ishandome:boolean){}
+}
+let h1 = new humanMaker("john", true);
+
+- In the above example basically : 
+1. We created a class name humanMaker. 
+2. we have defined a property age and initialized it with 0, now whenever we create an object of class humanMaker then age will be 0 by default, we haven't put age in constructor because we want it to be 0 by default for every object of class humanMaker, if we want to change the value of age then we can do it using the object of the class like s1.age = 25 etc.
+3. We have created a constructor which will be called when we create an object of class humanMaker, here we have also defined the properties name and ishandome in the constructor itself, so we don't need to define them separately like we did in software class.
+4. we have created an object of class humanMaker and passed the values for name and ishandome properties. With constructor we can have class with user defined properties and methods also we can set fixed properties and  methods for that class just by defining them outside the constructor like we made age property in humanMaker class
+5. Note: constructor always runs first when we create an object of a class, it is used to initialize the properties of the class, here we have initialized the properties name and ishandome using the constructor parameters, we have also made them public so that we can access them outside the class using the object of the class
+6. Also we can set constructor parameters as public, private or protected, if we set it as public then we can access it outside the class using the object of the class, if we set it as private then we can only access it inside the class and if we set it as protected then we can access it inside the class and also in the subclasses of that class.
