@@ -189,4 +189,31 @@ let user1 = new userName("john", 25);
     }
 
 - 1. static version = "1.0.0"; --> here we have defined a static property version, which means we can access this property without creating an object of the class, we can access it using the class name like this: project1.version, it will return the value of version property which is "1.0.0".
-- 2. we dont have to create let s1 = new project`() to access version property like this: s1.version, since we are using static we can directly access it like project1.version      
+- 2. we dont have to create let s1 = new project`() to access version property like this: s1.version, since we are using static we can directly access it like project1.version 
+
+### Abstract class
+
+- So basically abstract class is a class that cannot be instantiated, it is used as a base class for other classes to inherit from, it can have abstract methods which must be implemented by the subclasses that inherit from it.
+
+-  definition of abstract class: abstract class is a class that cannot be instantiated, it is used as a base class for other classes to inherit from, it can have abstract methods which must be implemented by the subclasses that inherit from it, but it can also have regular methods and properties that can be accessed by the subclasses that inherit from it.
+
+- Eg: abstract class Cooking {
+    constructor(protected gas: number, public gasName: string) {}
+    abstract cook(): void;
+    }
+    class Curry extends Cooking {
+
+  cook() {
+    console.log("Cooking curry with " + this.gasName);
+    }
+
+}
+
+let c1 = new Curry(5,"LPG");
+c1.cook();
+
+- 1. abstract class Cooking { --> here we have defined an abstract class Cooking
+- 2.  abstract cook(): void;--> here we have defined an abstract method cook, which means any class that inherits from Cooking class must implement this cook method, if we try to create an object of a class that inherits from Cooking class without implementing cook method then it will give error because cook method is abstract and must be implemented by the subclass that inherits from Cooking class
+- 3. console.log("Cooking curry with " + this.gasName);--> here we are implementing the cook method of Cooking class in Curry class, since cook method is abstract in Cooking class, we must implement it in Curry class, if we don't implement it then it will give error because cook method is abstract and must be implemented by the subclass that inherits from Cooking class
+- 4. let c1 = new Curry(5,"LPG");--> here we have created an object of class Curry and passed the values for gas and gasName parameters, now we can access the cook method of Curry class using the object c1 like this: c1.cook(), it will print "Cooking curry with LPG" because we have implemented the cook method in Curry class and it is using the gasName property which is inherited from Cooking class to print the name of gas used for cooking curry
+- 5. c1.cook();--> here we are calling cook method of Curry class using the object c1, this will print "Cooking curry with LPG" because we have implemented the cook method in Curry class and it is using the gasName property which is inherited from Cooking class to print the name of gas used for cooking curry
