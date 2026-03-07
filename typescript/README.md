@@ -59,3 +59,31 @@ let h1 = new humanMaker("john", true);
 4. we have created an object of class humanMaker and passed the values for name and ishandome properties. With constructor we can have class with user defined properties and methods also we can set fixed properties and  methods for that class just by defining them outside the constructor like we made age property in humanMaker class
 5. Note: constructor always runs first when we create an object of a class, it is used to initialize the properties of the class, here we have initialized the properties name and ishandome using the constructor parameters, we have also made them public so that we can access them outside the class using the object of the class
 6. Also we can set constructor parameters as public, private or protected, if we set it as public then we can access it outside the class using the object of the class, if we set it as private then we can only access it inside the class and if we set it as protected then we can access it inside the class and also in the subclasses of that class.
+
+### this key word in ts
+
+- Basically this keyword is used to access the properties which are not defined inside the method but are defined in the class
+- A function inside a class is called method
+- Eg: class xyz {
+    name = "abc";
+     changename(){
+        this.name = "def";
+        }
+
+    changeSomething(){
+        console.log('hey');
+        this.changename();
+         }
+}
+
+* Example with constructor and this keyword :
+
+- class bottleMaker{
+    constructor(public name: string){
+        this.name = name;
+         }
+}
+
+- Here we are using this keyword to assign the value of name parameter to the name property of the class, this keyword refers to the current object of the class, so when we create an object of class bottleMaker and pass a value for name parameter then it will assign that value to the name property of that object. 
+
+- Basically its like public name; constructor(name: string) {this.name = name;} so inside constructor it takes the parameter name and assigns it to the property name of the class using this keyword, this is a shorthand way of writing the constructor and initializing the properties of the class in one line.
