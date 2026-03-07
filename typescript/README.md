@@ -88,3 +88,17 @@ let h1 = new humanMaker("john", true);
 - Here we are using this keyword to assign the value of name parameter to the name property of the class, this keyword refers to the current object of the class, so when we create an object of class bottleMaker and pass a value for name parameter then it will assign that value to the name property of that object. 
 
 -  Better way to write is like this: class bottleMaker{constructor( public name:string){}}
+
+### Access Specifiers in ts
+
+-  In short public ,private and protected are access specifiers in ts that determine the accessibility of the properties and methods of a class, public means accessible from anywhere, private means accessible only within the class and protected means accessible within the class and also in the subclasses that inherit from this class.
+
+- But if we access private or protected outisde the class then it will give error in ts but in browser it will still change the value of private or protected property because in js there is no concept of private or protected properties, it is just a convention to use _ before the name of private properties to indicate that they are private, but in ts we have actual access specifiers that enforce the accessibility of the properties and methods of a class.
+
+- Eg : Class car {
+    constructor ( public name:string,private model:string, protected year:number)
+}
+
+- public means we can access this property from anywhere, it is the default access specifier in ts
+- private means we can only access this property within the class, we cannot access it outside the class using the object of the class
+- protected means we can access this property within the class and also in the subclasses that inherit from this class, but we cannot access it outside the class using the object of the class

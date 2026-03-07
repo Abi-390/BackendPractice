@@ -91,4 +91,15 @@ class bottle {
     }
 }
 let b1 = new bottle('coke');
+//Access specifiers in ts
+class car {
+    name; // public means we can access this property from anywhere, it is the default access specifier in ts
+    model; // private means we can only access this property within the class, we cannot access it outside the class using the object of the class
+    year; // protected means we can access this property within the class and also in the subclasses that inherit from this class, but we cannot access it outside the class using the object of the class
+    constructor(name, model, year) {
+        this.name = name;
+        this.model = model;
+        this.year = year;
+    }
+}
 //# sourceMappingURL=app.js.map
