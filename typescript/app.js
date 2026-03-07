@@ -138,4 +138,35 @@ class dog extends animal {
 }
 let d1 = new dog("tommy");
 d1.getValue(); // here we are calling getValue method of dog class using the object d1, this will print the name property of the dog class which is inherited from animal class, so it will print "tommy"
+// Access modifiers in ts
+class person {
+    name;
+    age;
+    gender;
+    constructor(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    } // here we have used readonly access modifier for name property, which means we can only assign value to name property at the time of object creation and after that we cannot change it, if we try to change it will give error, but we can change age
+    changeParameters() {
+        this.age = 30;
+        this.gender = "male"; // here we can't do this.name = "abc" because name is readonly, we can only assign value to name property at the time of object creation and after that we cannot change it, if we try to change it will give error, but we can change age and gender.
+    }
+}
+// Getters and Setters in ts
+class userName {
+    _name;
+    age;
+    constructor(_name, age) {
+        this._name = _name;
+        this.age = age;
+    }
+    get name() {
+        return this._name; // here we are using getter to get the value of _name property, we can access this getter using the object of the class like this: user1.name, it will return the value of _name property
+    }
+    set name(value) {
+        this._name = value; // here we are using setter to set the value of _name property, we can access this setter using the object of the class like this: user1.name = "new name", it will set the value of _name property to "new name"
+    }
+}
+let user1 = new userName("john", 25); // here we have created an object of class userName and passed the values for _name and age parameters, now we can access the name getter and setter using the object user1 like this: user1.name to get the value of _name property and user1.name = "new name" to set the value of _name property to "new name"
 //# sourceMappingURL=app.js.map

@@ -95,6 +95,20 @@ let h1 = new humanMaker("john", true);
 
 - But if we access private or protected outisde the class then it will give error in ts but in browser it will still change the value of private or protected property because in js there is no concept of private or protected properties, it is just a convention to use _ before the name of private properties to indicate that they are private, but in ts we have actual access specifiers that enforce the accessibility of the properties and methods of a class.
 
+- Access Specifiers
+
+public
+- Accessible from anywhere
+- Default modifier
+
+private
+- Accessible only within the class
+
+protected
+- Accessible within the class
+- Accessible in subclasses (classes that extend it)
+- Not accessible outside
+
 - Eg : Class car {
     constructor ( public name:string,private model:string, protected year:number)
 }
@@ -125,3 +139,43 @@ let h1 = new humanMaker("john", true);
   
 
 -  Overall explaination the inheritance example given above is that we have a parent class animal with a private property animalAge and a public property name, then we have a child class dog that extends the parent class animal, in the child class dog we have a constructor that calls the constructor of the parent class using super keyword to initialize the name property, we also have a method getValue that tries to access both name and animalAge properties, since animalAge is private in the parent class we cannot access it in the child class even with inheritance, but we can access name property because it is public in the parent class, when we create an object of class dog and call getValue method it will print the name and animalAge properties of the dog object, since we haven't changed the value of animalAge it will print 0 by default.
+
+
+### Access Modifiers
+
+-  Access modifiers are used to control the accessibility of properties and methods of a class, public means we can access it from anywhere, private means we can only access it within the class, protected means we can access it within the class and also in the subclasses that inherit from this class, readonly means we can only assign value to it at the time of object creation and after that we cannot change it.
+
+- Eg :  class person {
+    constructor(public readonly name: string, private age: number, protected gender: string) {} 
+    changeParameters(){
+        this.age = 30;
+        this.gender = "male";
+         }
+
+} 
+
+- 1. constructor(public readonly name: string, private age: number, protected gender: string) {}--> here we have used readonly access modifier for name property, which means we can only assign value to name property at the time of object creation and after that we cannot change it, if we try to change it will give error, but we can change age
+- 2.   this.gender = "male";-->here we can't do this.name = "abc" because name is readonly, we can only assign value to name property at the time of object creation and after that we cannot change it, if we try to change it will give error, but we can change age and gender.
+
+### Getters and Setters in ts
+
+- getters and setters are used to get and set the values of properties in a class, they provide a way to control the access to the properties of a class, we can use
+
+- Eg : class userName{
+    constructor(public _name:string, public age:number){
+    }
+    get name(){
+        return this._name;
+        }
+
+    set name(value : string){
+        this._name = value; 
+        }
+}
+
+let user1 = new userName("john", 25);
+
+- 1.  return this._name; --> here we are using getter to get the value of _name property, we can access this getter using the object of the class like this: user1.name, it will return the value of _name property.
+- 2.  this._name = value; --> here we are using setter to set the value of _name property, we can access this setter using the object of the class like this: user1.name = "new name", it will set the value of _name property to "new name".
+- 3. let user1 = new userName("john", 25);--> here we have created an object of class userName and passed the values for _name and age parameters, now we can access the name getter and setter using the object user1 like this: user1.name to get the value of _name property and user1.name = "new name" to set the value of _name property to "new name".
+- 4. Note : constructor(public _name:string, public age:number) --> _name here because if we put name here then in getter we wont be able to use get name() it will give duplicate identifier error because we have already used name as a parameter in constructor, so we use _name to avoid this error and then we can use get name() and set name() to access and modify the value of _name property
