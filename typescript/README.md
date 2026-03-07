@@ -79,11 +79,12 @@ let h1 = new humanMaker("john", true);
 * Example with constructor and this keyword :
 
 - class bottleMaker{
-    constructor(public name: string){
+     public name;
+    constructor(name: string){
         this.name = name;
          }
 }
 
 - Here we are using this keyword to assign the value of name parameter to the name property of the class, this keyword refers to the current object of the class, so when we create an object of class bottleMaker and pass a value for name parameter then it will assign that value to the name property of that object. 
 
-- Basically its like public name; constructor(name: string) {this.name = name;} so inside constructor it takes the parameter name and assigns it to the property name of the class using this keyword, this is a shorthand way of writing the constructor and initializing the properties of the class in one line.
+-  Better way to write is like this: class bottleMaker{constructor( public name:string){}}

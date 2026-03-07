@@ -72,7 +72,7 @@ class xyz {
         this.name = "def"; // here we are using this keyword to change the value of name property, this keyword refers to the current object of the class, so when we call changename method using an object of class xyz then it will change the value of name property for that object
     }
     changeSomething() {
-        console.log('hey');
+        console.log("hey");
         this.changename(); // here we are calling changename method inside changeSomething method using this keyword, so when we call changeSomething method using an object of class xyz then it will first print 'hey' and then it will call changename method which will change the value of name property for that object
     }
 }
@@ -80,8 +80,15 @@ class xyz {
 class bottleMaker {
     name;
     constructor(name) {
-        this.name = name;
         this.name = name; // here we are using this keyword to assign the value of name parameter to the name property of the class, this keyword refers to the current object of the class, so when we create an object of class bottleMaker and pass a value for name parameter then it will assign that value to the name property of that object
     }
+} // better way to write is like this: class bottleMaker{ constructor( public name:string){} }
+// better way 
+class bottle {
+    name;
+    constructor(name) {
+        this.name = name;
+    }
 }
+let b1 = new bottle('coke');
 //# sourceMappingURL=app.js.map
