@@ -217,3 +217,19 @@ c1.cook();
 - 3. console.log("Cooking curry with " + this.gasName);--> here we are implementing the cook method of Cooking class in Curry class, since cook method is abstract in Cooking class, we must implement it in Curry class, if we don't implement it then it will give error because cook method is abstract and must be implemented by the subclass that inherits from Cooking class
 - 4. let c1 = new Curry(5,"LPG");--> here we have created an object of class Curry and passed the values for gas and gasName parameters, now we can access the cook method of Curry class using the object c1 like this: c1.cook(), it will print "Cooking curry with LPG" because we have implemented the cook method in Curry class and it is using the gasName property which is inherited from Cooking class to print the name of gas used for cooking curry
 - 5. c1.cook();--> here we are calling cook method of Curry class using the object c1, this will print "Cooking curry with LPG" because we have implemented the cook method in Curry class and it is using the gasName property which is inherited from Cooking class to print the name of gas used for cooking curry
+
+
+# Function types in ts
+
+- Eg: function pqrs(name:string,callback:(value:string)=>void){
+    callback('hey')
+    }
+
+pqrs("john",(value:string)=>{
+     console.log(value)
+})
+
+- 1. function pqrs(name:string,callback:(value:string)=>void)--> here we have defined a function pqrs that takes two parameters, name which is of type string and callback which is a function that takes a parameter value of type string and returns void, this means that the callback function doesn't return anything, it just performs some action with the value parameter, we can call this pqrs function and pass a string value for name and a callback function that takes a string parameter and returns void, like this: pqrs("john",(value:string)=>{ console.log(value) }), here we are passing "john" as the name parameter and a callback function that takes a string parameter value and logs it to the console, when we call pqrs function it will execute the callback function with the value "john" and it will log "john" to the console .
+- 2.  callback('hey') // here we are calling the callback function with the value "hey", so when we call pqrs function it will execute the callback function with the value "hey" and it will log "hey" to the console, we can change this value to anything we want, like this: callback(name) then it will log the value of name parameter which is "john" to the console.
+- 3. pqrs("john",(value:string)=>{})--> here we are calling pqrs function and passing "john" as the name parameter and a callback function that takes a string parameter value and logs it to the console, when we call pqrs function it will execute the callback function with the value "john" and it will log "john" to the console 
+
