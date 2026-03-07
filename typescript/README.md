@@ -11,7 +11,7 @@
 - Premitive type--> Number , String , Boolean
 - Any where you se [],() or {} this a reference type . In reference type basically suppose let a= [1,2,3] and b=a. Now if we push 4 to b ,b becomes [1,2,3,4] but since array is reference type along it b , a will also become [1,2,3,4].
 - enum is key value pair kind of similar to objects where you can in future access the properties inside the enum
-- If we dont assign type to a variable will automatically get the type 'any'. In this type can set any kind of value like string,number etc to the variable.
+- If we dont assign type ( and dont give a value to the variable also) to a variable, it will automatically get the type 'any'. In this type can set any kind of value like string,number etc to the variable.
 - in case of unknown type first we need to check the type with condition {eg:if(typeof a==="string")a.toUpperCase()} after that only we use run any method
 - If a function doesnt return anything then we need to put it as type void
 - let e:string|number; here we are using union( '|' ),that mean value of e can either be string or number
@@ -102,3 +102,26 @@ let h1 = new humanMaker("john", true);
 - public means we can access this property from anywhere, it is the default access specifier in ts
 - private means we can only access this property within the class, we cannot access it outside the class using the object of the class
 - protected means we can access this property within the class and also in the subclasses that inherit from this class, but we cannot access it outside the class using the object of the class
+
+### Inheritane in Ts
+
+-  class dog extends animal{
+    constructor(name:string){
+        super(name); 
+    }
+
+    getValue(){
+        console.log(this.name)
+    }
+  }
+
+  let d1 = new dog("tommy");
+  d1.getValue(); 
+
+- 1. private animalAge :number = 0; //Now animalAge is only accessible within this class, even with inheritance we cannot access this in below class dog, if we try it will give error.
+- 2. super(name); // here we are using super keyword to call the constructor of the parent class animal, so that we can initialize the name property in the parent class, super keyword is used to call the constructor of the parent class and also to access the properties and methods of the parent class.
+- 3.  console.log(this.name)// here we cannot access animalAge property(this.animalAge) because it is private in parent class animal, even with inheritance we cannot access private properties of parent class, if we try to access it will give error, but we can access name property because it is public in parent class animal
+- 4.  d1.getValue(); // here we are calling getValue method of dog class using the object d1, this will print the name property of the dog class which is inherited from animal class, so it will print "tommy"
+  
+
+-  Overall explaination the inheritance example given above is that we have a parent class animal with a private property animalAge and a public property name, then we have a child class dog that extends the parent class animal, in the child class dog we have a constructor that calls the constructor of the parent class using super keyword to initialize the name property, we also have a method getValue that tries to access both name and animalAge properties, since animalAge is private in the parent class we cannot access it in the child class even with inheritance, but we can access name property because it is public in the parent class, when we create an object of class dog and call getValue method it will print the name and animalAge properties of the dog object, since we haven't changed the value of animalAge it will print 0 by default.

@@ -102,4 +102,40 @@ class car {
         this.year = year;
     }
 }
+// Inheritance in ts
+class vehicle {
+    name;
+    model;
+    year;
+    constructor(name, model, year) {
+        this.name = name;
+        this.model = model;
+        this.year = year;
+    }
+}
+class bike extends vehicle {
+    type;
+    constructor(name, model, year, type) {
+        super(name, model, year); // here we are using super keyword to call the constructor of the parent class vehicle, so that we can initialize the properties name, model and year in the parent class, super keyword is used to call the constructor of the parent class and also to access the properties and methods of the parent class
+        this.type = type;
+    }
+}
+// anther example of inheritance
+class animal {
+    name;
+    animalAge = 0; //Now animalAge is only accessible within this class, even with inheritance we cannot access this in below class dog, if we try it will give error.
+    constructor(name) {
+        this.name = name;
+    }
+}
+class dog extends animal {
+    constructor(name) {
+        super(name); // here we are using super keyword to call the constructor of the parent class animal, so that we can initialize the name property in the parent class, super keyword is used to call the constructor of the parent class and also to access the properties and methods of the parent class
+    }
+    getValue() {
+        console.log(this.name); // here we cannot access animalAge property(this.animalAge) because it is private in parent class animal, even with inheritance we cannot access private properties of parent class, if we try to access it will give error, but we can access name property because it is public in parent class animal
+    }
+}
+let d1 = new dog("tommy");
+d1.getValue(); // here we are calling getValue method of dog class using the object d1, this will print the name property of the dog class which is inherited from animal class, so it will print "tommy"
 //# sourceMappingURL=app.js.map
