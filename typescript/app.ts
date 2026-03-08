@@ -294,3 +294,21 @@ processData({ name: "john", age: 25, key: "abc" }); // here we are calling proce
 
 processData({ name: "john", age: 25, key: 123 }); // here we are trying to call processData function and passing an object that does not conform to the Data<string | number> interface because the key property is of type boolean instead of string or number, this will give an error because it does not conform to the Data<string | number> interface, if we want to use a boolean for key property then we should specify T as boolean in the Data interface like this: Data<boolean> and then we can pass a boolean value for key property without any error.
 
+// ---Generic classes in ts---
+
+class foodMaker<T>{
+  constructor(public key:T){} // here we have defined a generic class foodMaker that takes a type parameter T, this means that when we create an object of foodMaker class we can specify the type of T and it will determine the type of key property for that object, for example if we create an object like this: let f1 = new foodMaker<string>("abc") then T will be string and the key property of f1 will be of type string and it will be initialized with the value "abc", if we create another object like this: let f2 = new foodMaker<number>(123) then T will be number and the key property of f2 will be of type number and it will be initialized with the value 123, this way we can create a reusable class that can work with any data type for key property while still providing type safety.
+}
+
+let f1 = new foodMaker<string>("abc"); // here we are creating an object of class foodMaker and specifying the type parameter T as string, so the key property of this object will be of type string and we are passing a string value "abc" for key property.
+let f2 = new foodMaker<number>(123); // here we are creating an object of class foodMaker and specifying the type parameter T as number, so the key property of this object will be of type number and we are passing a number value 123 for key property.
+
+ // --- Exception note for genrics in ts ---
+
+ function Exception<T>(a:T,b:T):T{
+  return 'hey' as T;// here we have defined a function Exception that takes two parameters a and b of type T and returns a value of type T, but in the function body we are returning a string value "hey" and using type assertion to assert that it is of type T, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
+ }
+
+ Exception<string>('hello','world'); // here we are calling Exception function and specifying the type parameter T as string, so it will return a string value 'hey', but since we are using a type assertion to assert that 'hey' is of type T (which is string in this case), it will not give an error even though 'hey' is not actually of type string, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
+
+ // Basically in typescript "hey" is not a string its a string literal type,so when we assert 'hey' as string we are telling the compiler to treat this string literal type  as a string type.
