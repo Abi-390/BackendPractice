@@ -245,3 +245,30 @@ pqrs("john",(value:string)=>{
 
 - So basically all the numbers that are sent as arguments to the sum function will be treated as an array of numbers and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
 
+
+# Function overloading
+
+- For other programming languages fnc overloading is basically function with same name but different parameters or different return type or both, but in ts we need to make function signatures first and then we need to implement the function body that corresponds to all these signatures, this is how we can achieve function overloading in ts, it allows us to create functions that can handle different types of arguments and return types while still maintaining type safety and providing meaningful error messages when the function is called with invalid arguments.
+
+- Eg : function abcdef(x:string):void;
+function abcdef(x:number, y:string):number;
+function abcdef(x: any, y?: any): any {
+     if(typeof x === "string"){
+        console.log("String signature called with value: " + x);
+    } else if(typeof x === "number" && typeof y === "string"){
+        console.log("Number and String signature called with values: " + x + " and " + y);
+        return x;
+        }
+    else  throw new Error('Invalid arguments');
+}
+
+- 1. function abcdef(x:string):void; --> here we have defined a function signature for abcdef function that takes a string parameter x and returns void, this means that when we call abcdef function with a string argument it will execute the function body that corresponds to this signature.
+- 2. function abcdef(x:number, y:string):number; --> here we have defined another function signature for abcdef function that takes a number parameter x and a string parameter y and returns a number, this means that when we call abcdef function with a number and a string argument it will execute the function body that corresponds to this signature, we can define as many signatures as we want for the same function to allow different types of arguments and return types, but we must implement the function body that corresponds to all these signatures.
+- 3. function abcdef(x: any, y?: any): any {} --> here we have implemented the function body for abcdef function that corresponds to all the signatures we have defined above, since we have defined multiple signatures for abcdef function, we must implement a function body that can handle all these signatures, so we have defined the parameters as x:any and y?:any, which means that x can be of any type and y is an optional parameter that can also be of any type, now inside the function body we can check the types of x and y to determine which signature is being called and execute the corresponding logic for that signature.
+- 4. return x; --> since this signature returns a number, we can return x which is a number
+- 5. else  throw new Error('Invalid arguments');--> here we are throwing an error if the arguments passed to abcdef function do not match any of the defined signatures, this is a good practice to handle cases where the function is called with invalid arguments, it helps to catch errors early and provide meaningful error messages to the developers who are using this function.
+
+
+
+
+

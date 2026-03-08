@@ -246,3 +246,23 @@ function sum (...arr:number[]){}// here we have defined a function sum that take
 sum(1,2,3,4,5); // here we are calling sum function and passing 5 numbers as arguments, since we have defined rest parameters in sum function as arr:number[], it means that we can pass any number of arguments to sum function and it will treat them as an array of numbers, so when we call sum function with 5 numbers it will treat them as an array [1,2,3,4,5] and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
 
 
+// Function overloading in ts
+
+// ts fnc signatures
+
+
+function abcdef(x:string):void; // here we have defined a function signature for abcdef function that takes a string parameter x and returns void, this means that when we call abcdef function with a string argument it will execute the function body that corresponds to this signature.
+
+function abcdef(x:number, y:string):number; // here we have defined another function signature for abcdef function that takes a number parameter x and a string parameter y and returns a number, this means that when we call abcdef function with a number and a string argument it will execute the function body that corresponds to this signature, we can define as many signatures as we want for the same function to allow different types of arguments and return types, but we must implement the function body that corresponds to all these signatures.
+
+function abcdef(x: any, y?: any): any { // here we have implemented the function body for abcdef function that corresponds to all the signatures we have defined above, since we have defined multiple signatures for abcdef function, we must implement a function body that can handle all these signatures, so we have defined the parameters as x:any and y?:any, which means that x can be of any type and y is an optional parameter that can also be of any type, now inside the function body we can check the types of x and y to determine which signature is being called and execute the corresponding logic for that signature.
+    if(typeof x === "string"){
+        console.log("String signature called with value: " + x);
+    } else if(typeof x === "number" && typeof y === "string"){
+        console.log("Number and String signature called with values: " + x + " and " + y);
+        return x; // since this signature returns a number, we can return x which is a number
+    }
+    else  throw new Error('Invalid arguments');// here we are throwing an error if the arguments passed to abcdef function do not match any of the defined signatures, this is a good practice to handle cases where the function is called with invalid arguments, it helps to catch errors early and provide meaningful error messages to the developers who are using this function.
+  }
+
+
