@@ -281,3 +281,16 @@ function abcdef(x: any, y?: any): any { // here we have implemented the function
   let result3 = acceptAnything(true); // here we are calling acceptAnything function without specifying the type parameter T, in this case TypeScript will infer the type of T based on the argument passed to the function, since we passed a boolean value true, TypeScript will infer T as boolean and it will return a boolean value true, so result3 will be of type boolean.
 
 // ---Generic interfaces in ts---  
+
+interface Data<T>{
+  name : string,
+  age : number,
+  key : T //since we dont know key type like key can be number also string also boolean etc, so we are using generic type parameter T to represent the type of key property, this way we can create a reusable interface that can work with any data type for key property while still providing type safety.
+}
+
+function processData(obj : Data<string | number>){}// here we have defined a function processData that takes an object of type Data<string | number>, this means that the key property of the object passed to processData function can be either a string or a number, so when we call processData function we need to pass an object that conforms to the Data<string | number> interface, which means that the key property of that object must be either a string or a number, if we try to pass an object that does not conform to this interface then it will give an error because it does not match the expected type for the key property.
+
+processData({ name: "john", age: 25, key: "abc" }); // here we are calling processData function and passing an object that conforms to the Data interface with T specified as string, so the key property must be of type string, if we try to pass a value of a different type for key property it will give an error because it does not conform to the Data<string> interface.
+
+processData({ name: "john", age: 25, key: 123 }); // here we are trying to call processData function and passing an object that does not conform to the Data<string | number> interface because the key property is of type boolean instead of string or number, this will give an error because it does not conform to the Data<string | number> interface, if we want to use a boolean for key property then we should specify T as boolean in the Data interface like this: Data<boolean> and then we can pass a boolean value for key property without any error.
+

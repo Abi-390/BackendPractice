@@ -246,7 +246,7 @@ pqrs("john",(value:string)=>{
 - So basically all the numbers that are sent as arguments to the sum function will be treated as an array of numbers and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
 
 
-# Function overloading
+### Function overloading
 
 - For other programming languages fnc overloading is basically function with same name but different parameters or different return type or both, but in ts we need to make function signatures first and then we need to implement the function body that corresponds to all these signatures, this is how we can achieve function overloading in ts, it allows us to create functions that can handle different types of arguments and return types while still maintaining type safety and providing meaningful error messages when the function is called with invalid arguments.
 
@@ -270,9 +270,9 @@ function abcdef(x: any, y?: any): any {
 
 
 
-# Generics in ts
+## Generics in ts
 
-* Generic Functions:
+### Generic Functions:
 
 - So basically suppose we want to have a function that accepts anything as parameter or argument and returns the same type value as output, for that we can use 'any' type in ts but it is not a good practice because it doesn't provide type safety, so instead of using any we can use generics to achieve this, generics allow us to create resuable components that can work with any data type while still providing type safety.
 
@@ -288,5 +288,22 @@ function abcdef(x: any, y?: any): any {
 - 3.   let result2 = acceptAnything<number>(123); --> here we are calling acceptAnything function and specifying the type parameter T as number, so it will return a number value 123 and we are storing it in result2 variable which is of type number.
 - 4.   let result3 = acceptAnything(true); --> here we are calling acceptAnything function without specifying the type parameter T, in this case TypeScript will infer the type of T based on the argument passed to the function, since we passed a boolean value true, TypeScript will infer T as boolean and it will return a boolean value true, so result3 will be of type boolean.
 
-  
+
+### Generic interfaces
+
+- So generics in interface also similar to generics in functions, it allows us to create reusable interfaces that can work with any data type while still providing type safety, we can specify the type parameter when we use the interface to create objects that conform to that interface with the specified type.
+
+- Eg: interface Data<T>{
+  name : string,
+  age : number,
+  key : T
+}
+
+- 1. key : T -->since we dont know key type like key can be number also string also boolean etc, so we are using generic type parameter T to represent the type of key property, this way we can create a reusable interface that can work with any data type for key property while still providing type safety.
+- 2. function processData(obj : Data<string | number>){}--> here we have defined a function processData that takes an object of type Data<string | number>, this means that the key property of the object passed to processData function can be either a string or a number, so when we call processData function we need to pass an object that conforms to the Data<string | number> interface, which means that the key property of that object must be either a string or a number, if we try to pass an object that does not conform to this interface then it will give an error because it does not match the expected type for the key property.
+- 3. processData({ name: "john", age: 25, key: "abc" }); --> here we are calling processData function and passing an object that conforms to the Data interface with T specified as string, so the key property must be of type string, if we try to pass a value of a different type for key property it will give an error because it does not conform to the Data<string> interface.
+- 4. processData({ name: "john", age: 25, key: 123 }); --> here we are trying to call processData function and passing an object that does not conform to the Data<string | number> interface because the key property is of type boolean instead of string or number, this will give an error because it does not conform to the Data<string | number> interface, if we want to use a boolean for key property then we should specify T as boolean in the Data interface like this: Data<boolean> and then we can pass a boolean value for key property without any error.
+
+
+ 
 
