@@ -331,7 +331,13 @@ let f2 = new foodMaker<number>(123);
 
 - 1.   return 'hey' as T;--> here we have defined a function Exception that takes two parameters a and b of type T and returns a value of type T, but in the function body we are returning a string value "hey" and using type assertion to assert that it is of type T, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
  - 2.  Exception<string>('hello','world'); --> here we are calling Exception function and specifying the type parameter T as string, so it will return a string value 'hey', but since we are using a type assertion to assert that 'hey' is of type T (which is string in this case), it will not give an error even though 'hey' is not actually of type string, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
- - 3. Basically in typescript "hey" is not a string its a string literal type,so when we assert 'hey' as string we are telling the compiler to treat this string literal type  as a string type.
+ - 3.  Exception<string>('hello','world'); --> here we are calling Exception function and specifying the type parameter T as string, so it will return a string value 'hey', but since we are using a type assertion to assert that 'hey' is of type T (which is string in this case), it will not give an error even though 'hey' is not actually of type string, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
+- 4.  Basically in typescript "hey" is not a string its a string literal type,so when we assert 'hey' as string we are telling the compiler to treat this string literal type as a string type.
+
+
+## Type Gaurds
+
+-  Basically type guards is type narrowing technique and type narrowing is if we are not sure about the type of a variable and we want to perform some operations on that variable based on its type, then we can use 'typeof' operator or 'instanceof' operator to check the type of that variable and then perform the operations accordingly, this is called type guards or type narrowing in TypeScript.
 
  
 

@@ -4,7 +4,7 @@ enum UserRoles {
   ADMIN = "admin",
   GUEST = "guest",
   SUPER_ADMIN = "super_admin",
-} // enum is kind of similar to objects where we can in future access admin like UserRoles.ADMIN or guest like UserRoles.GUEST etc
+} // enum is kind of similar to objects but we use it to create constant values ( you can't create instances of an enum) where we can in future access admin like UserRoles.ADMIN or guest like UserRoles.GUEST etc
 
 let a: number; // assigning type to a variable
 
@@ -307,8 +307,23 @@ let f2 = new foodMaker<number>(123); // here we are creating an object of class 
 
  function Exception<T>(a:T,b:T):T{
   return 'hey' as T;// here we have defined a function Exception that takes two parameters a and b of type T and returns a value of type T, but in the function body we are returning a string value "hey" and using type assertion to assert that it is of type T, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
- }
+ // or return <T>'hey';
+}
 
  Exception<string>('hello','world'); // here we are calling Exception function and specifying the type parameter T as string, so it will return a string value 'hey', but since we are using a type assertion to assert that 'hey' is of type T (which is string in this case), it will not give an error even though 'hey' is not actually of type string, this is an exception in TypeScript where we can use type assertions to override the type checking and tell the compiler to treat a value as a different type, but we should use this feature with caution because it can lead to runtime errors if we assert a value to be of a type that it is not actually compatible with.
 
  // Basically in typescript "hey" is not a string its a string literal type,so when we assert 'hey' as string we are telling the compiler to treat this string literal type  as a string type.
+
+ //Type Guards or type narrowing in ts
+
+ //-- Basically type guards is type narrowing technique and type narrowing is if we are not sure about the type of a variable and we want to perform some operations on that variable based on its type, then we can use 'typeof' operator or 'instanceof' operator to check the type of that variable and then perform the operations accordingly, this is called type guards or type narrowing in TypeScript.
+
+//Example of type guards using typeof operator
+function processValue(value: string | number) { // here we have defined a function processValue that takes a parameter value which can be either a string or a number, this is a union type in TypeScript, since we are not sure about the type of value parameter we can use type guards to check its type and perform operations accordingly.
+  if (typeof value === "string") { // here we are using typeof operator to check if the type of value is string, if it is true then we can perform string operations on value parameter.
+    console.log("The length of the string is: " + value.length); // since we have checked that value is a string, we can safely access the length property of value without any error.
+  } else if (typeof value === "number") { // here we are using typeof operator to check if the type of value is number, if it is true then we can perform number operations on value parameter.
+    console.log("The square of the number is: " + (value * value)); // since we have checked that value is a number, we can safely perform arithmetic operations on value without any error.
+  } else {
+    throw new Error("Invalid type"); // here we are throwing an error if the type of value does not match any of the expected types (string or number), this is a good practice to handle cases where the function is called with invalid arguments, it helps to catch errors early and provide meaningful error messages to the developers who are using this function.
+  } }
