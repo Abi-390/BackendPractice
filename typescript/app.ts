@@ -266,3 +266,18 @@ function abcdef(x: any, y?: any): any { // here we have implemented the function
   }
 
 
+  // Generics in ts 
+
+// ---Generic functions in ts---
+
+  function acceptAnything<T>(value:T):T{ // here we have defined a generic function acceptAnything that takes a type parameter T ( we can put it anything like A, B, C.... but T is a common convention ), this means that when we call acceptAnything function we can specify the type of T and it will return a value of that type, for example if we call acceptAnything<string>("hello") then T will be string and it will return a string value "hello", if we call acceptAnything<number>(123) then T will be number and it will return a number value 123, this way we can create a reusable function that can work with any data type while still providing type safety.
+    return value;
+  } 
+
+  let result1 = acceptAnything<string>("hello"); // here we are calling acceptAnything function and specifying the type parameter T as string, so it will return a string value "hello" and we are storing it in result1 variable which is of type string.
+
+  let result2 = acceptAnything<number>(123); // here we are calling acceptAnything function and specifying the type parameter T as number, so it will return a number value 123 and we are storing it in result2 variable which is of type number.
+
+  let result3 = acceptAnything(true); // here we are calling acceptAnything function without specifying the type parameter T, in this case TypeScript will infer the type of T based on the argument passed to the function, since we passed a boolean value true, TypeScript will infer T as boolean and it will return a boolean value true, so result3 will be of type boolean.
+
+// ---Generic interfaces in ts---  

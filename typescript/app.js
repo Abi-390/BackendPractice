@@ -238,3 +238,12 @@ function abcdef(x, y) {
     else
         throw new Error('Invalid arguments'); // here we are throwing an error if the arguments passed to abcdef function do not match any of the defined signatures, this is a good practice to handle cases where the function is called with invalid arguments, it helps to catch errors early and provide meaningful error messages to the developers who are using this function.
 }
+// Generics in ts 
+// ---Generic functions in ts---
+function acceptAnything(value) {
+    return value;
+}
+var result1 = acceptAnything("hello"); // here we are calling acceptAnything function and specifying the type parameter T as string, so it will return a string value "hello" and we are storing it in result1 variable which is of type string.
+var result2 = acceptAnything(123); // here we are calling acceptAnything function and specifying the type parameter T as number, so it will return a number value 123 and we are storing it in result2 variable which is of type number.
+var result3 = acceptAnything(true); // here we are calling acceptAnything function without specifying the type parameter T, in this case TypeScript will infer the type of T based on the argument passed to the function, since we passed a boolean value true, TypeScript will infer T as boolean and it will return a boolean value true, so result3 will be of type boolean.
+// ---Generic interfaces in ts---  

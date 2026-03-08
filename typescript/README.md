@@ -270,5 +270,23 @@ function abcdef(x: any, y?: any): any {
 
 
 
+# Generics in ts
 
+* Generic Functions:
+
+- So basically suppose we want to have a function that accepts anything as parameter or argument and returns the same type value as output, for that we can use 'any' type in ts but it is not a good practice because it doesn't provide type safety, so instead of using any we can use generics to achieve this, generics allow us to create resuable components that can work with any data type while still providing type safety.
+
+- Eg : function acceptAnything<T>(value:T):T{
+         return value;
+  }
+  let result1 = acceptAnything<string>("hello");
+  let result2 = acceptAnything<number>(123);
+  let result3 = acceptAnything(true);
+
+- 1.   function acceptAnything<T>(value:T):T{} --> here we have defined a generic function acceptAnything that takes a type parameter T ( we can put it anything like A, B, C.... but T is a common convention ), this means that when we call acceptAnything function we can specify the type of T and it will return a value of that type, for example if we call acceptAnything<string>("hello") then T will be string and it will return a string value "hello", if we call acceptAnything<number>(123) then T will be number and it will return a number value 123, this way we can create a reusable function that can work with any data type while still providing type safety.
+- 2.   let result1 = acceptAnything<string>("hello"); --> here we are calling acceptAnything function and specifying the type parameter T as string, so it will return a string value "hello" and we are storing it in result1 variable which is of type string.
+- 3.   let result2 = acceptAnything<number>(123); --> here we are calling acceptAnything function and specifying the type parameter T as number, so it will return a number value 123 and we are storing it in result2 variable which is of type number.
+- 4.   let result3 = acceptAnything(true); --> here we are calling acceptAnything function without specifying the type parameter T, in this case TypeScript will infer the type of T based on the argument passed to the function, since we passed a boolean value true, TypeScript will infer T as boolean and it will return a boolean value true, so result3 will be of type boolean.
+
+  
 
