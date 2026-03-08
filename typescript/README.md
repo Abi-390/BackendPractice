@@ -233,3 +233,15 @@ pqrs("john",(value:string)=>{
 - 2.  callback('hey') // here we are calling the callback function with the value "hey", so when we call pqrs function it will execute the callback function with the value "hey" and it will log "hey" to the console, we can change this value to anything we want, like this: callback(name) then it will log the value of name parameter which is "john" to the console.
 - 3. pqrs("john",(value:string)=>{})--> here we are calling pqrs function and passing "john" as the name parameter and a callback function that takes a string parameter value and logs it to the console, when we call pqrs function it will execute the callback function with the value "john" and it will log "john" to the console 
 
+
+### Rest parameters in ts
+
+-  Rest parameters basically used when we don't know how many arguments will be passed to the function, it allows us to pass any number of arguments to the function and it will treat them as an array, so we can perform any array operations on this rest parameter inside the function to calculate the sum of these numbers or do any other operations as needed.
+
+- Eg: function sum (...arr:number[]){};sum(1,2,3,4,5);
+
+- 1.  function sum (...arr:number[]){} --> here we have defined a function sum that takes rest parameters, rest parameters are used to represent an indefinite number of arguments as an array, here we have defined rest parameters as arr:number[], which means that we can pass any number of arguments to sum function and it will treat them as an array of numbers, so when we call sum function with any number of arguments it will treat them as an array and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
+- 2. sum(1,2,3,4,5); --> here we are calling sum function and passing 5 numbers as arguments, since we have defined rest parameters in sum function as arr:number[], it means that we can pass any number of arguments to sum function and it will treat them as an array of numbers, so when we call sum function with 5 numbers it will treat them as an array [1,2,3,4,5] and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
+
+- So basically all the numbers that are sent as arguments to the sum function will be treated as an array of numbers and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
+

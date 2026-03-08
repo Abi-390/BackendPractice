@@ -238,3 +238,11 @@ pqrs("john",(value:string)=>{// here we are calling pqrs function and passing "j
     console.log(value)
 })
 
+
+// Rest parameters in ts
+
+function sum (...arr:number[]){}// here we have defined a function sum that takes rest parameters, rest parameters are used to represent an indefinite number of arguments as an array, here we have defined rest parameters as arr:number[], which means that we can pass any number of arguments to sum function and it will treat them as an array of numbers, so when we call sum function with any number of arguments it will treat them as an array and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
+
+sum(1,2,3,4,5); // here we are calling sum function and passing 5 numbers as arguments, since we have defined rest parameters in sum function as arr:number[], it means that we can pass any number of arguments to sum function and it will treat them as an array of numbers, so when we call sum function with 5 numbers it will treat them as an array [1,2,3,4,5] and we can perform any array operations on this arr parameter inside the sum function to calculate the sum of these numbers or do any other operations as needed.
+
+
