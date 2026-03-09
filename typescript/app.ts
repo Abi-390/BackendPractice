@@ -327,3 +327,11 @@ function processValue(value: string | number) { // here we have defined a functi
   } else {
     throw new Error("Invalid type"); // here we are throwing an error if the type of value does not match any of the expected types (string or number), this is a good practice to handle cases where the function is called with invalid arguments, it helps to catch errors early and provide meaningful error messages to the developers who are using this function.
   } }
+
+  // type asssertions in ts
+
+  // Type assertions in simple words is a way to tell the TypeScript compiler to treat a value as a different type than it currently is, this can be useful in situations where we know more about the type of a value than the compiler does, for example when we are working with DOM elements or when we are using third-party libraries that may not have proper type definitions.
+
+  let someValue: any = "this is a string"; // here we have defined a variable someValue of type any and assigned it a string value, since someValue is of type any, we can perform any operations on it without any error, but we want to treat it as a string and access string properties and methods on it, so we can use type assertions to tell the compiler to treat someValue as a string.
+
+  let strLength: number = (someValue as string).length; // here we are using type assertion to assert that someValue is of type string, so that we can access the length property of someValue without any error, we are also assigning the length of the string to a variable strLength of type number.
