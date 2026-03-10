@@ -1,4 +1,5 @@
-FROM node:18
+FROM node:18 
+# for better practice we should use FROM node:18-alpine which is a light weight image of node but for now we are using node:18
 # this meaning we are getting a based image of node18 which contains linux os + nodejs
 
 WORKDIR /app
